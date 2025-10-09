@@ -1,0 +1,52 @@
+:root{
+    --numberSquares: 348px;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
+    background-color: #E8E7EC;
+}
+.contenGame{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    width: 700px;
+    height: 700px;
+    flex-wrap: wrap;
+    background-color: #ffffff;
+}
+
+.divElement{
+    border: 1px solid rgb(238, 238, 238);
+    width: var(--numberSquares);
+    height: var(--numberSquares);
+    box-sizing: border-box;
+    border-radius: 1px;
+    box-shadow: 0 0 10px #5c5d5e6e;
+}
+
+.contentContent{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+}   
+
+.contentButtons{
+    display: flex;
+    flex-direction: column;
+    margin: 0 100px;
+}
+h1{
+    color: #1e5785;
+}
+
+.divElementColor{
+    background-color: rgb(10, 49, 49);
+}
