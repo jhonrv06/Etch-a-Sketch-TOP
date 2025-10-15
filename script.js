@@ -5,11 +5,19 @@ const BUTTONS = document.querySelectorAll(".buttons");
 let size = 20;
 
 function promp(data){
-    if(data == "rezize"){
-        size = prompt("Choose the board size");
+    if (data == "erase"){
+         console.log("dataProm")
+         return size = size;
+    }else if(data == "rezize"){
+        dataProm = prompt("Choose the board size");
+       
+            if(dataProm != null ){
+                size = dataProm;
+            }
         return size;
     }
 }
+
 
 function deleteDivs(){
     const DIVS = document.querySelectorAll(".divElement");

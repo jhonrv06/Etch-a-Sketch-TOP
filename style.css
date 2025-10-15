@@ -1,3 +1,4 @@
+
 :root{
     --numberSquares: 348px;
 }
@@ -11,7 +12,7 @@ body{
     background-color: #E8E7EC;
 }
 .contenGame{
-    
+    min-width: 700px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,6 +21,7 @@ body{
     height: 700px;
     flex-wrap: wrap;
     background-color: #ffffff;
+   
 }
 
 .divElement{
@@ -34,14 +36,17 @@ body{
 .contentContent{
     width: 100%;
     display: flex;
-    justify-content: space-between;
-    align-items: center; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }   
 
 .contentButtons{
     display: flex;
-    flex-direction: column;
     margin: 0 100px;
+    gap: 10px;
+   
 }
 h1{
     color: #1e5785;
@@ -49,4 +54,21 @@ h1{
 
 .divElementColor{
     background-color: rgb(10, 49, 49);
+}
+
+.buttons{
+    	font-size: clamp(0.5rem, 5vw, 1.1rem);
+		padding: clamp(0.1rem, 0.1vw, 0.1rem) ;
+		width: 150px;	
+		height: 50px;
+		text-align: center;
+		border: 0;
+		border-radius: 25px;
+		background-color: #F15151;
+		color: white;
+		font-weight: 700;
+		font-family: Calibri, 'Trebuchet MS', sans-serif;
+		box-sizing: border-box;
+        box-shadow: 0 0 10px #5c5d5e6e;
+        cursor: pointer;
 }
