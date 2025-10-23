@@ -3,6 +3,7 @@
     --numberSquares: 348px;
 }
 
+
 body{
     display: flex;
     flex-direction: column;
@@ -52,15 +53,11 @@ h1{
     color: #1e5785;
 }
 
-.divElementColor{
-    background-color: rgb(10, 49, 49);
-}
-
 .buttons{
     	font-size: clamp(0.5rem, 5vw, 1.1rem);
 		padding: clamp(0.1rem, 0.1vw, 0.1rem) ;
 		width: 150px;	
-		height: 50px;
+		height: 40px;
 		text-align: center;
 		border: 0;
 		border-radius: 25px;
@@ -71,4 +68,12 @@ h1{
 		box-sizing: border-box;
         box-shadow: 0 0 10px #5c5d5e6e;
         cursor: pointer;
+        
 }
+
+
+
+.choiceColor{
+  
+}
+
