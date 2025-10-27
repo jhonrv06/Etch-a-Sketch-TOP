@@ -2,15 +2,16 @@ const DIVCONTAINER = document.querySelector(".contenGame");
 const BUTTONS = document.querySelectorAll(".buttons");
 const COLOR = document.querySelector("#color");
 const CAMBIARCOLOR = document.querySelector("#prueba");
-let defaultColor = "rgba(54, 164, 197, 1)";
+let defaultColor = "rgba(61, 62, 63)";
 let selecColor;
 let size = 20;
+let procedure = 0.10;
 
 
 function promp(data){
      
     if (data == "erase"){
-        defaultColor = "rgba(54, 164, 197, 1)";
+        defaultColor = "rgba(61, 62, 63)";
         return size = size;
     }
     
@@ -59,8 +60,6 @@ function randomColor(){
 
 }
 
-
-
 function deleteDivs(){
     const DIVS = document.querySelectorAll(".divElement");
 
@@ -82,38 +81,65 @@ function accionButtons(){
             const BUTTONTARGET = e.target;
             const BUTTONNAME = BUTTONTARGET.name;
 
-            //Al dibujar el nuevo div me debe devolver un tamaño
+            
             drawGrid(promp(BUTTONNAME))
             console.log(BUTTONNAME)
             if(BUTTONNAME == "ramdomColor"){
                 paintDiv("random");
                 return
             }
-            //Si es randm cambiar el parametro, cambiar el valor de la variable defalutl color, donde debo pone la funcion
+           
             paintDiv(defaultColor);
          })
     });
 }
 
 function paintDiv(color){
-   
     const DIVS = document.querySelectorAll(".divElement");
+    let opacityy = 1;
 
     DIVS.forEach(element =>{
         element.addEventListener("mouseenter", (e) =>{
-           const BUTTONTARGET = e.target;
+            //Debo obtener el valor de la opacidad actual del elemento y sumarle 0.10. Por lo tanto la opacidad debe quedar en 0.10
+            const DIVELEMENT = e.target;
+            const STYLE = window.getComputedStyle(DIVELEMENT);
 
-            
+            const ROUND = Math.round(procedure * 100) / 100;
+
+            console.log(STYLE.backgroundColor)
+
+            let DIVOPACITY = parseFloat(STYLE.opacity);
+            let DIVBACGROUNDCOLOR = STYLE.backgroundColor;
+
             if (color == "random"){
-               
-                BUTTONTARGET.style.backgroundColor = randomColor();
-                console.log(color);
-        
+                DIVELEMENT.style.backgroundColor = randomColor();
             }
 
-            BUTTONTARGET.style.backgroundColor = color;
+            if (DIVOPACITY == 1 && DIVBACGROUNDCOLOR == "rgba(0, 0, 0, 0)" ){
+                    DIVELEMENT.style.opacity = 0.10;
+            }
 
-        
+            DIVELEMENT.style.opacity = parseFloat(STYLE.opacity) + procedure;
+            /*
+            if(sumOpacity == 1 ){
+                DIVELEMENT.style.opacity = 0.10;
+                console.log("funciona")
+            }
+         
+            if(sumOpacity <= 0.80){
+                DIVELEMENT.style.opacity = parseFloat(STYLE.opacity) + procedure;
+            }
+
+             if(sumOpacity == 0.90 ){
+
+                DIVELEMENT.style.opacity = 0.99;
+                console.log("funciona2")
+            }*/
+            
+            DIVELEMENT.style.backgroundColor = color;
+            
+            console.log(STYLE.opacity);
+
         });
     });
 }

@@ -31,6 +31,7 @@ body{
     height: var(--numberSquares);
     box-sizing: border-box;
     border-radius: 1px;
+    opacity: 2;
     box-shadow: 0 0 10px #5c5d5e6e;
 }
 
