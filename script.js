@@ -6,25 +6,38 @@ let defaultColor = "rgba(61, 62, 63)";
 let selecColor;
 let size = 20;
 let procedure = 0.10;
-
+let opacityy = 1;
 
 function promp(data){
      
     if (data == "erase"){
+        opacityy = 1;
         defaultColor = "rgba(61, 62, 63)";
         return size = size;
+        
     }
     
     if(data == "rezize"){
         dataProm = prompt("Choose the board size");
-            if(dataProm != null ){
-                size = dataProm;
-            }
-        return size;
+        if(dataProm > 100){
+            alert("Enter a number less than 100");
+            return size
+        }
+
+        if(dataProm != null ){
+            size = dataProm;
+            opacityy = 1;
+            return size;
+        } 
     }
 
     if(data == "ramdomColor"){
         return size;
+    }
+
+    if(data == "progressive"){
+        opacityy = 0.10;
+         return size;
     }
 }
 
@@ -96,11 +109,10 @@ function accionButtons(){
 
 function paintDiv(color){
     const DIVS = document.querySelectorAll(".divElement");
-    let opacityy = 1;
+    
 
     DIVS.forEach(element =>{
         element.addEventListener("mouseenter", (e) =>{
-            //Debo obtener el valor de la opacidad actual del elemento y sumarle 0.10. Por lo tanto la opacidad debe quedar en 0.10
             const DIVELEMENT = e.target;
             const STYLE = window.getComputedStyle(DIVELEMENT);
 
@@ -116,26 +128,11 @@ function paintDiv(color){
             }
 
             if (DIVOPACITY == 1 && DIVBACGROUNDCOLOR == "rgba(0, 0, 0, 0)" ){
-                    DIVELEMENT.style.opacity = 0.10;
+                    DIVELEMENT.style.opacity = opacityy;
             }
 
-            DIVELEMENT.style.opacity = parseFloat(STYLE.opacity) + procedure;
-            /*
-            if(sumOpacity == 1 ){
-                DIVELEMENT.style.opacity = 0.10;
-                console.log("funciona")
-            }
-         
-            if(sumOpacity <= 0.80){
-                DIVELEMENT.style.opacity = parseFloat(STYLE.opacity) + procedure;
-            }
+            DIVELEMENT.style.opacity = parseFloat(STYLE.opacity) + 0.10;
 
-             if(sumOpacity == 0.90 ){
-
-                DIVELEMENT.style.opacity = 0.99;
-                console.log("funciona2")
-            }*/
-            
             DIVELEMENT.style.backgroundColor = color;
             
             console.log(STYLE.opacity);
