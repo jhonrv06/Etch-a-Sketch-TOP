@@ -62,7 +62,6 @@ function randomNumber(){
 }
 
 function randomColor(){
-    //Se puede poner un parametro a esta funcion la cual cambien ald ar click
     let randomN1 = randomNumber()
     let randomN2 = randomNumber()
     let randomN3 = randomNumber()
